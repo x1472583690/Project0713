@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 struct student{
-	int Chin;//學號
+	int s_number;//學號
 	int Score;//分數
 	student *link;
 };
@@ -17,7 +17,7 @@ void Cerate_node(void){
 void insert(int key1,int key2){ //串尾端
 	student *new_node;
 	new_node=(student*)malloc(sizeof(student));
-	new_node->Chin=key1;//設定學號
+	new_node->s_number=key1;//設定學號
 	new_node->Score=key2;;//設定分數
 	new_node->link=NULL;
 	if(front->link==NULL){
@@ -36,7 +36,7 @@ void del(int key){	//刪節點
 	this_node = front->link;
 
 	while(this_node->link!=NULL){//搜尋欲刪除節點
-		if(key==this_node->Chin){
+		if(key==this_node->s_number){
 			temp_node=this_node;
 			pre->link=this_node->link;
 			free(temp_node);
@@ -45,7 +45,7 @@ void del(int key){	//刪節點
 		pre=this_node;
 		this_node=this_node->link;
 	}//刪最後資料
-	if(key == this_node->Chin){//搜尋欲刪除節點
+	if(key == this_node->s_number){//搜尋欲刪除節點
 		temp_node=this_node;
 		pre->link=NULL;
 		rear->link=pre;
@@ -61,7 +61,7 @@ void Change(int key){	//改節點
 	this_node = front->link;
 	int Chan;
 	while(this_node->link!=NULL){//搜尋欲改節點
-		if(key==this_node->Chin){
+		if(key==this_node->s_number){
 			printf("\nEnter 修改\n");
 			scanf("%d",&Chan);
 			this_node->Score=Chan;
@@ -70,7 +70,7 @@ void Change(int key){	//改節點
 		pre=this_node;
 		this_node=this_node->link;
 	}//改最後資料
-	if(key == this_node->Chin){//搜尋欲改節點
+	if(key == this_node->s_number){//搜尋欲改節點
 			printf("\nEnter 修改\n");
 			scanf("%d",&Chan);
 			this_node->Score=Chan;
@@ -87,11 +87,11 @@ void sort(student *p,int count){//串列排序
 		while(ptr->link !=NULL){
 			if ( ptr->link->Score < ptr->Score ){//分數比大小temp&value同時交換
 				value=ptr->link->Score;
-				temp=ptr->link->Chin;
+				temp=ptr->link->s_number;
 				ptr->link->Score=ptr->Score;
-				ptr->link->Chin=ptr->Chin;
+				ptr->link->s_number=ptr->s_number;
 				ptr->Score=value; 
-				ptr->Chin=temp;
+				ptr->s_number=temp;
 			} 
 			ptr=ptr->link;
 		}
@@ -115,11 +115,11 @@ void print(void){
 	student *this_node;
 	this_node=front->link;
 	while(this_node->link!=NULL){//判斷是否NULL
-		printf("學號%d:",this_node->Chin);
+		printf("學號%d:",this_node->s_number);
 		printf("%d分 ",this_node->Score);
 		this_node = this_node->link;
 	}//印最後一個
-	printf("學號%d:",this_node->Chin);
+	printf("學號%d:",this_node->s_number);
 	printf("%d分 ",this_node->Score);
 }
 
