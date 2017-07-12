@@ -54,6 +54,31 @@ void del(int key){	//刪節點
 	else
 		printf("NO\n");
 }
+
+void Change(int key){	//改節點
+	student *temp_node,*this_node,*pre;
+
+	pre = front;
+	this_node = front->link;
+	int Chan;
+	while(this_node->link!=NULL){//搜尋欲改節點
+		printf("CHANGE1");
+		scanf("%d",&Chan);
+		this_node->Chin=Chan;
+		return;
+		}
+		pre=this_node;
+		this_node=this_node->link;
+	//改最後資料
+	if(key == this_node->Chin){//搜尋改刪除節點
+		printf("CHANGE");
+		scanf("%d",&Chan);
+		this_node->Chin=Chan;
+	}
+	else
+		printf("NO123\n");
+	}
+
 void print(void){
 	student *this_node;
 	this_node=front->link;
@@ -74,14 +99,14 @@ void main(void){
 		insert(a[i],20);
 	}
 	print();
-	printf("Eeter 刪除\n");
+	printf("\nEeter 刪除\n");
 	scanf("%d",&DE);
 	del(DE);
 	print();
-	printf("Eeter 插入\n");
+	printf("\nEeter 插入\n");
 	scanf("%d",&IN);
 	insert(IN,20);
 	print();
-
-
+	Change(58);
+	print();
 }
